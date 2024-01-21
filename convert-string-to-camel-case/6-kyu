@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void to_camel_case(const char *text, char *camel)
+{
+
+    int c = 0;
+    for (int i = 0; text[i] != '\0'; i++)
+    {
+        if (text[i] == '-' || text[i] == '_')
+        {
+            i++;
+            camel[c++] = toupper(text[i]);
+        }
+        else
+            camel[c++] = text[i];
+    }
+    camel[c] = '\0';
+}
